@@ -60,5 +60,5 @@ FROM
 ORDER BY
   demand_count DESC, 
   avg_salary DESC
-LIMIT 30 --Limit 25
+LIMIT 10 --Limit 25
 ; 
