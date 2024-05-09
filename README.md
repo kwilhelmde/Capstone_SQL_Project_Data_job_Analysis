@@ -94,7 +94,7 @@ ORDER BY
 
 - In-Demand Skills for Data Analysts:
 
-This query facilitated the identification of frequently requested skills in job postings, shedding light on areas of significant demand.
+This query facilitated the identification of frequently requested skills for job postings in Germany, shedding light on areas of significant demand.
 
 ```
 SELECT
@@ -128,7 +128,7 @@ LIMIT 5;
 
 - Skills Based on Salary:
 
-Investigating the average salaries tied to diverse skill sets provided insights into which skills are most financially rewarding.
+Investigating the average salaries tied to diverse skill sets provided insights into which skills are most financially rewarding in Germany.
 
 ```
 SELECT 
