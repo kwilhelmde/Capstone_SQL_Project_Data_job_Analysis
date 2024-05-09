@@ -1,0 +1,127 @@
+/* Find the average salary both yearly (salary_year_avg) and hourly (salary_hour_avg) for job postings using the 
+job_postings_fact table that were posted after June 1, 2023. Group the results by job schedule type.
+Order by the job_schedule_type in ascending order.
+Hint:
+Calculate average salaries by using the AVG function on both salary_year_avg and salary_hour_avg.
+Filter postings with WHERE for dates after June 1, 2023,
+Group the results with job_schedule_type.
+Use job_schedule_type for ORDER BY. */
+
+SELECT *
+FROM job_postings_fact
+LIMIT 5;
+
+SELECT
+    job_schedule_type,
+    AVG(salary_year_avg)  AS avg_salary_year,
+    AVG(salary_hour_avg) AS avg_salary_hour
+FROM 
+    job_postings_fact
+WHERE 
+    job_posted_date ::DATE > '2023-06-01'
+GROUP BY 
+    job_schedule_type
+ORDER BY 
+    job_schedule_type;
+
+/* Count the number of job postings for each month in 2023,
+ adjusting the job_posted_date to be in 'America/New_York' time zone before extracting the month. 
+ Assume the job_posted_date is stored in UTC. Group by and order by the month.
+Hint:
+Use the EXTRACT(MONTH FROM ...) function to get the month from job_posted_date and wihtin 
+this EXTRACT convert it to the 'America/New_York' time zone using AT TIME ZONE (don’t forget to 
+assume default is in ‘UTC’).
+COUNT the number of job postings
+GROUP BY the extracted month
+ORDER BY the month.*/
+
+SELECT
+    *
+FROM
+    job_postings_fact
+LIMIT
+    5;
+
+SELECT
+    EXTRACT(MONTH FROM job_posted_date AT TIME ZONE 'UTC' AT TIME ZONE 'America/New_York') AS month_post, 
+    COUNT(job_id) AS postings_count
+FROM 
+    job_postings_fact
+GROUP BY
+    month_post
+ORDER BY 
+    month_post;
+
+/* Find companies (include company name) that have posted jobs offering health insurance,
+ where these postings were made in the second quarter of 2023. Use date extraction to filter by quarter. 
+ And order by the job postings count from highest to lowest.
+Hint:
+Join job_postings_fact and company_dim on company_id to match jobs to companies.
+Use the WHERE clause to filter for jobs with job_health_insurance column.
+Use EXTRACT(QUARTER FROM job_posted_date) to filter for postings in the second quarter.
+Group results by company_name.
+Count the number of job postings per company with COUNT(job_id).
+Use HAVING to include only companies with at least one job posting.
+ORDER BY the job postings count in descending order to get highest → lowest. */
+
+SELECT
+    c_d.name,
+    COUNT(j_p_f.job_id) AS jobs_postings
+FROM
+    job_postings_fact j_p_f INNER JOIN company_dim c_d ON
+    j_p_f.company_id = c_d.company_id
+WHERE j_p_f.job_health_insurance = TRUE AND
+     EXTRACT(QUARTER FROM job_posted_date) = 2 
+GROUP BY c_d.name
+HAVING COUNT(j_p_f.job_id) > 0
+ORDER BY jobs_postings DESC;
+
+/* - Create three tables:
+    - Jan 2023 jobs
+    - Feb 2023 jobs
+    - Mar 2023 jobs
+- **Foreshadowing:** This will be used in another practice problem below.
+- Hints:
+    - Use `CREATE TABLE table_name AS` syntax to create your table
+    - Look at a way to filter out only specific months (`EXTRACT`) */
+
+SELECT *
+FROM job_postings_fact
+LIMIT 10
+
+
+CREATE TABLE january_jobs AS
+    SELECT *
+    FROM job_postings_fact
+    WHERE EXTRACT(MONTH FROM job_posted_date) = 1;
+
+CREATE TABLE february_jobs AS
+    SELECT *
+    FROM job_postings_fact
+    WHERE EXTRACT(MONTH FROM job_posted_date) = 2;
+
+CREATE TABLE march_jobs AS
+    SELECT *
+    FROM job_postings_fact
+    WHERE EXTRACT(MONTH FROM job_posted_date) = 3;
+
+SELECT *
+FROM january_jobs;
+
+SELECT *
+FROM ( 
+   SELECT *
+   FROM job_postings_fact
+   WHERE EXTRACT(MONTH FROM job_posted_date) = 1
+) AS january_jobs;
+
+WITH january_jobs AS(
+    SELECT *
+    FROM job_postings_fact
+    WHERE EXTRACT(MONTH FROM job_posted_date) = 1
+)
+SELECT *
+FROM january_jobs
+
+
+
