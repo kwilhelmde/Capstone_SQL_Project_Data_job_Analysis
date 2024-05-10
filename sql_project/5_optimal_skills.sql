@@ -3,7 +3,7 @@
 for a data analyst?
 - Identify skills in high demand and associated with high
 average salaries for Data Analyst roles
-- Concentrates on remote positions with specified salaries
+- Concentrates on jobs in Germany with specified salaries
 - Why? Targets skills that offer job security (high demand)
 and financial benefits (high salaries), offering strategic 
 insights for career development in data analysis */
