@@ -94,7 +94,7 @@ ORDER BY
 
 - In-Demand Skills for Data Analysts:
 
-This query facilitated the identification of frequently requested skills in job postings, shedding light on areas of significant demand.
+This query facilitated the identification of frequently requested skills in job postings in Germany, shedding light on areas of significant demand.
 
 ```
 SELECT
@@ -128,7 +128,7 @@ LIMIT 5;
 
 - Skills Based on Salary:
 
-Investigating the average salaries tied to diverse skill sets provided insights into which skills are most financially rewarding.
+Investigating the average salaries tied to diverse skill sets provided insights into which skills are most financially rewarding in Germany.
 
 ```
 SELECT 
@@ -201,7 +201,7 @@ ORDER BY
 
 -  Most Optimal Skills to Learn:
 
-This query sought to combine insights from demand and salary data to pinpoint skills that are in high demand and offer substantial salaries, providing a strategic roadmap for skill enhancement.
+This query sought to combine insights from demand and salary data to pinpoint skills that are in high demand and offer substantial salaries, providing a strategic roadmap for skill enhancement. This analysis makes a particular emphasis on jobs that were posted in Germany
 
 ```
 WITH skills_demand AS (
@@ -218,7 +218,7 @@ WITH skills_demand AS (
   WHERE
     job_postings_fact.job_title_short = 'Data Analyst'
     AND job_postings_fact.salary_year_avg IS NOT NULL
-    AND job_postings_fact.job_location = 'Anywhere'
+    AND job_postings_fact.job_country = 'Germany'
   GROUP BY
     skills_dim.skill_id
 ),
@@ -233,7 +233,7 @@ average_salary AS (
   WHERE
     job_postings_fact.job_title_short = 'Data Analyst'
     AND job_postings_fact.salary_year_avg IS NOT NULL
-    AND job_postings_fact.job_location = 'Anywhere'
+    AND job_postings_fact.job_country = 'Germany'
   GROUP BY
     skills_job_dim.skill_id
 )
@@ -251,17 +251,18 @@ ORDER BY
 LIMIT 10;
 ```
 
-| Skill       | Demand Count | Average Salary |
-|-------------|--------------|----------------|
-| SQL         | 398          | 97237.16       |
-| Excel       | 256          | 87288.21       |
-| Python      | 236          | 101397.22      |
-| Tableau     | 230          | 99287.65       |
-| R           | 148          | 100498.77      |
-| Power BI    | 110          | 97431.30       |
-| SAS         | 63           | 98902.37       |
-| PowerPoint  | 58           | 88701.09       |
-| Looker      | 49           | 103795.30      |
+| Skills   | Demand Count | Average Salary |
+|----------|--------------|----------------|
+| sql      | 24           | 93688.25       |
+| python   | 18           | 104242.92      |
+| tableau  | 13           | 97211.15       |
+| spark    | 7            | 138260.71      |
+| excel    | 7            | 87623.43       |
+| r        | 7            | 81861.93       |
+| looker   | 5            | 86927.30       |
+| pandas   | 4            | 108412.50      |
+| power bi | 4            | 97748.63       |
+| go       | 4            | 66554.25       |
 
 
 ### What I Learned

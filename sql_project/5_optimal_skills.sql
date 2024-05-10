@@ -25,7 +25,7 @@ WITH skills_demand AS (
   WHERE
     job_postings_fact.job_title_short = 'Data Analyst'
 		AND job_postings_fact.salary_year_avg IS NOT NULL
-    AND job_postings_fact.job_work_from_home = True
+    AND job_postings_fact.job_country = 'Germany'
   GROUP BY
     skills_dim.skill_id
 ),
@@ -43,7 +43,7 @@ average_salary AS (
   WHERE
     job_postings_fact.job_title_short = 'Data Analyst'
 		AND job_postings_fact.salary_year_avg IS NOT NULL
-    AND job_postings_fact.job_work_from_home = True
+    AND job_postings_fact.job_country = 'Germany'
   GROUP BY
     skills_job_dim.skill_id
 )
