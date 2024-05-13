@@ -7,6 +7,7 @@ those posted in Germany.
  for Data Analysts and helps identify the most financially 
  rewarding skills to acquire or improve. */
 
+
 -- Calculates the average salary for job postings by individual skill 
 SELECT
   skills_dim.skills AS skill, 

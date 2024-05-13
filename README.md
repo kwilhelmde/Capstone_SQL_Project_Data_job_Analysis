@@ -3,7 +3,7 @@ Welcome to my SQL Portfolio Project, where I delve into the dynamics of the data
 Feel free to explore the SQL queries here: [sql_project folder](/sql_project/)
 ### Background
 This project was initiated to gain a deeper understanding of the data analyst job market and to identify the skills that command the highest compensation and are in high demand.
-The data utilized for this analysis originates from Luke Barousse’s SQL Course, available at ([SQL for Data Analytics](https://www.lukebarousse.com/products/sql-for-data-analytics)). This dataset comprises comprehensive information encompassing job titles, salaries, locations, and requisite skills.
+The data utilized for this analysis originates from Luke Barousse’s SQL Course, available at ([SQL for Data Analytics](https://www.lukebarousse.com/sql)). This dataset comprises comprehensive information encompassing job titles, salaries, locations, and requisite skills.
 The primary inquiries addressed through my SQL queries were as follows:
 
 1. What are the highest-paying data analyst positions?
@@ -99,7 +99,8 @@ ORDER BY
     top_paying_jobs.salary_year_avg DESC;
 ```
 
-![Top Paying Roles](assets\Top_Paying_Jobs.png)
+![Top Paying Roles](assets\1_top_paying_jobs.png)
+
 The bar graph visualizes the frequency of skills required for the top 10 highest-paying data analyst positions. This graph was generated utilizing Microsoft Excel, employing my SQL query results.
 
 Here's the breakdown of the most demanded skills for the top 10 highest paying data analyst jobs in 2023:
@@ -177,7 +178,7 @@ ORDER BY
   avg_salary DESC;
 ```
 
-![Top Paying Roles](assets\Skills_Based_on_Salary.png)
+![Top Paying Roles](assets\2_skills_based_on_salary.png)
 The bar graph visualizes the skills that are most financially rewarding in Germany. This graph was generated utilizing Microsoft Excel, employing my SQL query results.
 
 Here's a breakdown of the results for top paying skills for Data Analysts:
