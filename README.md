@@ -3,7 +3,7 @@ Welcome to my SQL Portfolio Project, where I delve into the dynamics of the data
 Feel free to explore the SQL queries here: [sql_project folder](/sql_project/)
 ### Background
 This project was initiated to gain a deeper understanding of the data analyst job market and to identify the skills that command the highest compensation and are in high demand.
-The data utilized for this analysis originates from Luke Barousse’s SQL Course, available at ([SQL for Data Analytics](https://www.lukebarousse.com/products/sql-for-data-analytics)). This dataset comprises comprehensive information encompassing job titles, salaries, locations, and requisite skills.
+The data utilized for this analysis originates from Luke Barousse’s SQL Course, available at ([SQL for Data Analytics](https://www.lukebarousse.com/sql)). This dataset comprises comprehensive information encompassing job titles, salaries, locations, and requisite skills.
 The primary inquiries addressed through my SQL queries were as follows:
 
 1. What are the highest-paying data analyst positions?
