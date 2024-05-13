@@ -99,7 +99,7 @@ ORDER BY
     top_paying_jobs.salary_year_avg DESC;
 ```
 
-![Top Paying Roles](assets\1_top_paying_jobs.png)
+![Top Paying Roles](assets/1_top_paying_jobs.png)
 
 The bar graph visualizes the frequency of skills required for the top 10 highest-paying data analyst positions. This graph was generated utilizing Microsoft Excel, employing my SQL query results.
 
@@ -178,16 +178,16 @@ ORDER BY
   avg_salary DESC;
 ```
 
-![Top Paying Roles](assets\2_skills_based_on_salary.png)
+![Skills Based on Salary](assets/2_skills_based_on_salary.png)
 The bar graph visualizes the skills that are most financially rewarding in Germany. This graph was generated utilizing Microsoft Excel, employing my SQL query results.
 
 Here's a breakdown of the results for top paying skills for Data Analysts:
 
-The demand for Big Data and ML skills is soaring, as evidenced by the popularity of tools like Kafka, Spark, Databricks, and PySpark. Each of these tools specializes in critical areas such as streaming data processing, distributed computing, cloud-based analytics, and Python-based Big Data processing, attracting professionals with varying average salaries.
+- The demand for Big Data and ML skills is soaring, as evidenced by the popularity of tools like Kafka, Spark, Databricks, and PySpark. Each of these tools specializes in critical areas such as streaming data processing, distributed computing, cloud-based analytics, and Python-based Big Data processing, attracting professionals with varying average salaries.
 
-Moreover, mastery of software development and deployment tools like GitHub and Git is indispensable. These platforms underscore the importance of version control and collaborative workflows in software development, offering appealing average salaries to skilled practitioners.
+- Moreover, mastery of software development and deployment tools like GitHub and Git is indispensable. These platforms underscore the importance of version control and collaborative workflows in software development, offering appealing average salaries to skilled practitioners.
 
-In parallel, expertise in cloud computing is highly coveted, with Google Cloud Platform (GCP) and Azure emerging as top contenders. GCP shines in cloud computing and data engineering realms, while Azure boasts a comprehensive suite of cloud services from Microsoft. The acquisition of these skills promises promising career prospects in the rapidly evolving tech landscape.
+- In parallel, expertise in cloud computing is highly coveted, with Google Cloud Platform (GCP) and Azure emerging as top contenders. GCP shines in cloud computing and data engineering realms, while Azure boasts a comprehensive suite of cloud services from Microsoft. The acquisition of these skills promises promising career prospects in the rapidly evolving tech landscape.
 
 #### 5.  Most Optimal Skills to Learn:
 
