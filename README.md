@@ -3,7 +3,7 @@ Welcome to my SQL Portfolio Project, where I delve into the dynamics of the data
 Feel free to explore the SQL queries here: [sql_project folder](/sql_project/)
 ### Background
 This project was initiated to gain a deeper understanding of the data analyst job market and to identify the skills that command the highest compensation and are in high demand.
-The data utilized for this analysis originates from Luke Barousse’s SQL Course, available at ([SQL for Data Analytics](https://www.youtube.com/watch?v=7mz73uXD9DA&t=12856s)). This dataset comprises comprehensive information encompassing job titles, salaries, locations, and requisite skills.
+The data utilized for this analysis originates from Luke Barousse’s SQL Course, available at ([SQL for Data Analytics](https://www.lukebarousse.com/products/sql-for-data-analytics)). This dataset comprises comprehensive information encompassing job titles, salaries, locations, and requisite skills.
 The primary inquiries addressed through my SQL queries were as follows:
 
 1. What are the highest-paying data analyst positions?
@@ -16,12 +16,15 @@ In this project, I employed a diverse array of tools to conduct my analysis, inc
 - **SQL** (Structured Query Language): This language enabled me to interact with the database, extract insights, and address key questions through tailored queries.
 - **PostgreSQL**: Serving as the chosen database management system, PostgreSQL facilitated the storage, querying, and manipulation of the job posting data.
 - **Visual Studio Code**: Leveraging this open-source administration and development platform, I managed the database and executed SQL queries efficiently.
+- **Git & GitHub:** Essential for version control and sharing my SQL scripts and analysis, ensuring collaboration and project tracking.
+
 ### The Analysis
 Each query within this project was dedicated to examining particular aspects of the data analyst job market. 
-- Top Paying Data Analyst Jobs:
+
+#### 1. Top Paying Data Analyst Jobs:
 
 In the pursuit of identifying the highest-paying roles, filters were applied to data analyst positions based on their average yearly salary and location, with a particular emphasis on remote jobs. This query highlights the high-paying opportunities in the field.
-```
+```sql
 SELECT
 	job_id,
 	job_title,
@@ -34,37 +37,43 @@ FROM
 	job_postings_fact
 LEFT JOIN company_dim ON job_postings_fact.company_id = company_dim.company_id
 WHERE
-	job_title = 'Data Analyst'
+	job_title_short = 'Data Analyst'
 	AND salary_year_avg IS NOT NULL
 	AND job_location = 'Anywhere'
 ORDER BY
 	salary_year_avg DESC
 LIMIT 10;
 ```
-| Job ID   | Job Title     | Job Location | Schedule Type | Average Salary (Yearly) | Posted Date          | Company Name                       |
-|----------|---------------|--------------|---------------|-------------------------|----------------------|------------------------------------|
-| 226942   | Data Analyst  | Anywhere     | Full-time     | $650,000.00             | 2023-02-20 15:13:33  | Mantys                             |
-| 712473   | Data Analyst  | Anywhere     | Full-time     | $165,000.00             | 2023-08-14 16:01:19  | Get It Recruit - Information Tech |
-| 1246069  | Data Analyst  | Anywhere     | Full-time     | $165,000.00             | 2023-12-08 09:16:37  | Plexus Resource Solutions         |
-| 456042   | Data Analyst  | Anywhere     | Full-time     | $151,500.00             | 2023-09-25 10:59:56  | Get It Recruit - Healthcare       |
-| 405581   | Data Analyst  | Anywhere     | Full-time     | $145,000.00             | 2023-05-01 13:00:20  | CyberCoders                        |
-| 479485   | Data Analyst  | Anywhere     | Full-time     | $145,000.00             | 2023-03-15 16:59:55  | Level                              |
-| 1090975  | Data Analyst  | Anywhere     | Full-time     | $140,500.00             | 2023-03-24 07:06:43  | Uber                               |
-| 1482852  | Data Analyst  | Anywhere     | Full-time     | $138,500.00             | 2023-11-23 12:38:59  | Overmind                           |
-| 479965   | Data Analyst  | Anywhere     | Full-time     | $135,000.00             | 2023-02-26 01:04:44  | InvestM Technology LLC            |
-| 1326467  | Data Analyst  | Anywhere     | Full-time     | $135,000.00             | 2023-06-26 17:00:18  | EPIC Brokers                       |
+| Job ID   | Job Title                                     | Location | Schedule   | Salary (Year Avg) | Posted Date        | Company Name                                  |
+|----------|-----------------------------------------------|----------|------------|-------------------|--------------------|-----------------------------------------------|
+| 226942   | Data Analyst                                 | Anywhere | Full-time  | 650000.0          | 2023-02-20 15:13:33| Mantys                                        |
+| 547382   | Director of Analytics                         | Anywhere | Full-time  | 336500.0          | 2023-08-23 12:04:42| Meta                                          |
+| 552322   | Associate Director- Data Insights             | Anywhere | Full-time  | 255829.5          | 2023-06-18 16:03:12| AT&T                                          |
+| 99305    | Data Analyst, Marketing                      | Anywhere | Full-time  | 232423.0          | 2023-12-05 20:00:40| Pinterest Job Advertisements                   |
+| 1021647  | Data Analyst (Hybrid/Remote)                 | Anywhere | Full-time  | 217000.0          | 2023-01-17 00:17:23| Uclahealthcareers                             |
+| 168310   | Principal Data Analyst (Remote)               | Anywhere | Full-time  | 205000.0          | 2023-08-09 11:00:01| SmartAsset                                    |
+| 731368   | Director, Data Analyst - HYBRID              | Anywhere | Full-time  | 189309.0          | 2023-12-07 15:00:13| Inclusively                                   |
+| 310660   | Principal Data Analyst, AV Performance Analysis | Anywhere | Full-time | 189000.0          | 2023-01-05 00:00:25| Motional                                      |
+| 1749593  | Principal Data Analyst                        | Anywhere | Full-time  | 186000.0          | 2023-07-11 16:00:05| SmartAsset                                    |
+| 387860   | ERM Data Analyst                              | Anywhere | Full-time  | 184000.0          | 2023-06-09 08:01:04| Get It Recruit - Information Technology       |
 
+Here's the breakdown of the top data analyst jobs in 2023:
 
-- Skills for Top Paying Jobs:
+- **Wide Salary Range:** The salary range for the top 10 highest-paying data analyst roles span from $184,000 to $650,000, per year. This wide range highlights the diverse compensation packages available in the field.
+- **Diverse Employers:** Employers in the data analytics sector are diverse, including companies like Mantys, Meta, AT&T, Pinterest Job Advertisements, and more, showcasing the broad range of industries and organizations seeking data analysts.
+- **Job Title Variety:** The job titles for data analytics roles are diverse and reflective of the different levels and specializations within the field, ranging from "Data Analyst" and "Director of Analytics" to "Principal Data Analyst" and "Associate Director- Data Insights.
+
+#### 2. Skills for Top Paying Jobs:
 
 To comprehend the skills necessary for the highest-paying jobs, combining job postings with skills data offers insights into the attributes valued by employers for well-compensated positions.
 
-```
+```sql
 WITH top_paying_jobs AS (
     SELECT
         job_id,
         job_title,
-        salary_year_avg
+        salary_year_avg,
+        name as company name
     FROM
         job_postings_fact
     WHERE
@@ -90,13 +99,20 @@ ORDER BY
     top_paying_jobs.salary_year_avg DESC;
 ```
 
+![Top Paying Roles](assets\Top_Paying_Jobs.png)
+The bar graph visualizes the frequency of skills required for the top 10 highest-paying data analyst positions. This graph was generated utilizing Microsoft Excel, employing my SQL query results.
 
+Here's the breakdown of the most demanded skills for the top 10 highest paying data analyst jobs in 2023:
 
-- In-Demand Skills for Data Analysts:
+- **SQL** is leading with a bold count of 8.
+- **Python** follows closely with a bold count of 7.
+- **tableau** is also highly sought after, with a bold count of 6. Other skills like R, Snowflake, Pandas, and Excel show varying degrees of demand.
+
+#### 3. In-Demand Skills for Data Analysts:
 
 This query facilitated the identification of frequently requested skills in job postings in Germany, shedding light on areas of significant demand.
 
-```
+```sql
 SELECT
   skills_dim.skills,
   COUNT(skills_job_dim.job_id) AS demand_count
@@ -124,13 +140,23 @@ LIMIT 5;
 | Excel     | 1327         |
 | Power BI  | 1303         |
 
+Here's the breakdown of the most demanded skills for data analysts in 2023, according to the most frequently requested skills in job postings in Germany:
 
+-**SQL** was the most in-demand skill for data analysts in Germany in 2023, with 2947 job postings.
 
-- Skills Based on Salary:
+-**Python** followed closely behind, with 2316 job postings, showcasing its importance in data analysis roles.
+
+-**Tableau** demonstrated significant relevance, with 1370 job postings, highlighting the demand for data visualization expertise.
+
+-**Excel** remained a fundamental skill, with 1327 job postings, underlining its enduring importance in data analysis.
+
+-**Power BI** also saw substantial demand, with 1303 job postings, indicating the need for expertise in data visualization and reporting tools.
+
+#### 4. Skills Based on Salary:
 
 Investigating the average salaries tied to diverse skill sets provided insights into which skills are most financially rewarding in Germany.
 
-```
+```sql
 SELECT 
   skills_dim.skills AS skill,         
   ROUND(AVG(job_postings_fact.salary_year_avg),2)        
@@ -151,59 +177,22 @@ ORDER BY
   avg_salary DESC;
 ```
 
-| Skill          | Average Salary |
-|----------------|----------------|
-| Kafka          | 166419.50      |
-| Terraform      | 166419.50      |
-| BigQuery       | 166419.50      |
-| NoSQL          | 166419.50      |
-| Redshift       | 166419.50      |
-| GitHub         | 150896.33      |
-| Spark          | 138260.71      |
-| GCP            | 127477.83      |
-| No-SQL         | 111175.00      |
-| Terminal       | 111175.00      |
-| Databricks     | 111175.00      |
-| Elasticsearch  | 111175.00      |
-| Flask          | 111175.00      |
-| React          | 111175.00      |
-| PySpark        | 111175.00      |
-| JavaScript     | 111175.00      |
-| MATLAB         | 111175.00      |
-| Pandas         | 108412.50      |
-| Matplotlib     | 107491.67      |
-| NumPy          | 105650.00      |
-| SAS            | 105650.00      |
-| Git            | 105000.00      |
-| Python         | 104242.92      |
-| Atlassian      | 102500.00      |
-| Power BI       | 97748.63       |
-| Tableau        | 97211.15       |
-| SQL            | 93688.25       |
-| Pascal         | 92000.00       |
-| SQL Server     | 89100.00       |
-| Neo4j          | 89100.00       |
-| Julia          | 89100.00       |
-| Linux          | 89100.00       |
-| Excel          | 87623.43       |
-| Looker         | 86927.30       |
-| AWS            | 84004.67       |
-| PowerPoint     | 83937.50       |
-| Azure          | 83763.00       |
-| C#             | 82083.75       |
-| R              | 81861.93       |
-| SAP            | 78007.00       |
-| Java           | 75067.50       |
-| Go             | 66554.25       |
-| Sheets         | 57500.00       |
-| Oracle         | 56700.00       |
+![Top Paying Roles](assets\Skills_Based_on_Salary.png)
+The bar graph visualizes the skills that are most financially rewarding in Germany. This graph was generated utilizing Microsoft Excel, employing my SQL query results.
 
+Here's a breakdown of the results for top paying skills for Data Analysts:
 
--  Most Optimal Skills to Learn:
+The demand for Big Data and ML skills is soaring, as evidenced by the popularity of tools like Kafka, Spark, Databricks, and PySpark. Each of these tools specializes in critical areas such as streaming data processing, distributed computing, cloud-based analytics, and Python-based Big Data processing, attracting professionals with varying average salaries.
+
+Moreover, mastery of software development and deployment tools like GitHub and Git is indispensable. These platforms underscore the importance of version control and collaborative workflows in software development, offering appealing average salaries to skilled practitioners.
+
+In parallel, expertise in cloud computing is highly coveted, with Google Cloud Platform (GCP) and Azure emerging as top contenders. GCP shines in cloud computing and data engineering realms, while Azure boasts a comprehensive suite of cloud services from Microsoft. The acquisition of these skills promises promising career prospects in the rapidly evolving tech landscape.
+
+#### 5.  Most Optimal Skills to Learn:
 
 This query sought to combine insights from demand and salary data to pinpoint skills that are in high demand and offer substantial salaries, providing a strategic roadmap for skill enhancement. This analysis makes a particular emphasis on jobs that were posted in Germany
 
-```
+```sql
 WITH skills_demand AS (
   SELECT
     skills_dim.skill_id,
@@ -264,6 +253,17 @@ LIMIT 10;
 | power bi | 4            | 97748.63       |
 | go       | 4            | 66554.25       |
 
+Here's a breakdown of the most optimal skills for Data Analysts in 2023:
+
+**SQL**: With the highest demand count of 24, SQL skills are widely sought after in the German job market. Despite a slightly lower average salary of €93,688.25, proficiency in SQL offers solid career prospects.
+
+**Python**: Python follows closely with 18 demand counts and a higher average salary of €104,242.92, indicating strong demand and rewarding opportunities for Python programmers in Germany.
+
+**Tableau**: Despite a lower demand count compared to SQL and Python, Tableau's average salary of €97,211.15 makes it a lucrative skill to possess, especially for data visualization roles.
+
+**Spark, Excel, and R**: These skills tie with 7 demand counts each. Spark stands out with the highest average salary of €138,260.71, followed by Excel and R. Proficiency in these technologies can lead to competitive salaries and job opportunities.
+
+**Looker, Pandas, Power BI, and Go**: While these skills have lower demand counts (ranging from 5 to 4), they still offer attractive average salaries, making them valuable additions to one's skill set for those seeking diverse career paths in Germany.
 
 ### What I Learned
 Throughout this journey, the SQL toolkit has been supercharged with formidable capabilities:
