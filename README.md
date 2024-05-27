@@ -8,9 +8,9 @@ The primary inquiries addressed through my SQL queries were as follows:
 
 1. What are the highest-paying data analyst positions?
 2. Which skills are prerequisites for these top-paying roles?
-3. What skills are predominantly sought after by employers for data analyst positions?
-4. Are there specific skills correlated with elevated salary levels?
-5. Which skills present the most advantageous prospects for data analysts aiming to maximize their market value?
+3. What skills are predominantly sought after by employers for data analyst positions in Germany?
+4. Are there specific skills correlated with elevated salary levels in Germany?
+5. Which skills present the most advantageous prospects for data analysts aiming to maximize their market value in Germany?
 ### Tools
 In this project, I employed a diverse array of tools to conduct my analysis, including:
 - **SQL** (Structured Query Language): This language enabled me to interact with the database, extract insights, and address key questions through tailored queries.
